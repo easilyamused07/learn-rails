@@ -2,7 +2,7 @@ class Visitor
   include ActiveModel::Model
   attr_accessor :email
   validates_presence_of :email
-  validates_format_of :email, with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/
+  validates_format_of :email, with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
 
   def subscribe
     mailchimp = Gibbon::Request.new(api_key: Rails.application.secrets.mailchimp_api_key)
@@ -10,7 +10,7 @@ class Visitor
     result = mailchimp.lists(list_id).members.create(
       body: {
         email_address: self.email,
-	status: 'subscribed'
+        status: 'subscribed'
     })
     Rails.logger.info("Subscribed #{self.email} to MailChimp") if result
   end
