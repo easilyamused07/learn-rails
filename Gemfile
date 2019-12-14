@@ -15,7 +15,6 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 group :development do
-  gem 'sqlite3'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -30,6 +29,7 @@ gem 'jquery-rails'
 group :development do
   gem 'better_errors'
   gem 'rails_layout'
+  gem 'sqlite3'
 end
 group :production do
   gem 'pg'

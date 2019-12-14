@@ -1,4 +1,5 @@
 require File.expand_path('../../config/environment', __FILE__)
+require "minitest/rails/capybara"
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
@@ -6,4 +7,4 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-end
+ end
